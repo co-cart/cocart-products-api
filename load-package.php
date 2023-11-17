@@ -6,6 +6,8 @@
  * @package CoCart Products API Package
  */
 
+use CoCart\ProductsAPI\Package;
+
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'COCART_PRODUCTSAPI_PACKAGE_FILE' ) ) {
@@ -13,7 +15,7 @@ if ( ! defined( 'COCART_PRODUCTSAPI_PACKAGE_FILE' ) ) {
 }
 
 // Include the main CoCart Products API Package class.
-if ( ! class_exists( 'CoCart\ProductsAPI\Package', false ) ) {
+if ( ! class_exists( Package::class, false ) ) {
 	include_once untrailingslashit( plugin_dir_path( COCART_PRODUCTSAPI_PACKAGE_FILE ) ) . '/includes/class-cocart-products-api.php';
 }
 
@@ -24,7 +26,7 @@ if ( ! class_exists( 'CoCart\ProductsAPI\Package', false ) ) {
  */
 if ( ! function_exists( 'cocart_products_api_package' ) ) {
 	function cocart_products_api_package() {
-		return CoCart\ProductsAPI\Package::init();
+		return Package::init();
 	}
 
 	cocart_products_api_package();
